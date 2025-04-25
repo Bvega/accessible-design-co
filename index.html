@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Accessibility: Language attribute helps screen readers use correct pronunciation -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Accessibility: Ensures proper scaling on mobile devices -->
+    <title>Accessible Design Co.</title> <!-- Accessibility: Descriptive page title for screen readers and browser tabs -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Accessibility: Skip link allows keyboard users to bypass navigation -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Accessibility: Semantic header element for page header -->
+    <header>
+        <div class="logo-container">
+            <!-- Accessibility: Alt text for company logo -->
+            <img src="img/logo-placeholder-3.png" alt="Accessible Design Co. Logo">
+        </div>
+        <!-- Accessibility: Navigation role and label for screen readers -->
+        <nav role="navigation" aria-label="Main Navigation">
+            <!-- Accessibility: ARIA attributes for mobile menu toggle -->
+            <button aria-label="Toggle menu" class="menu-toggle" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+            <!-- Accessibility: Structured navigation with semantic list elements -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Accessibility: Main content region with ID for skip link target -->
+    <main id="main">
+        <!-- Accessibility: Section elements with IDs for navigation targets -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <!-- Accessibility: Proper heading hierarchy starting with h1 -->
+                <h1>Creating Accessible Digital Experiences</h1>
+                <p>We design inclusive solutions that work for everyone.</p>
+                <!-- Accessibility: Descriptive link text for call-to-action -->
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <!-- Accessibility: Proper heading hierarchy with h2 for section heading -->
+            <h2>About Us</h2>
+            <div class="about-content">
+                <!-- Accessibility: Article elements for discrete content sections -->
+                <article>
+                    <!-- Accessibility: Proper heading hierarchy with h3 for subsection -->
+                    <h3>Our Mission</h3>
+                    <p>At Accessible Design Co., we believe that digital experiences should be accessible to everyone. Our mission is to create beautiful, functional designs that prioritize inclusivity and accessibility.</p>
+                </article>
+                <article>
+                    <h3>Our Vision</h3>
+                    <p>We envision a world where technology bridges gaps rather than creating them. Through thoughtful design and development, we're working to make the digital world more accessible for all users.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <h2>Our Services</h2>
+            <!-- Accessibility: Grid layout that adapts to different screen sizes -->
+            <div class="services-grid">
+                <!-- Accessibility: Article elements with focus-within state for keyboard navigation -->
+                <article class="service-card">
+                    <!-- Accessibility: Meaningful alt text for service icon -->
+                    <img src="img/web-design-icon.png" alt="Web Design Icon">
+                    <h3>Accessible Web Design</h3>
+                    <p>We create beautiful websites that adhere to WCAG guidelines and provide an excellent experience for all users.</p>
+                </article>
+                <article class="service-card">
+                    <img src="img/audit-icon.png" alt="Accessibility Audit Icon">
+                    <h3>Accessibility Audits</h3>
+                    <p>Our comprehensive audits identify accessibility issues in your existing digital products and provide actionable solutions.</p>
+                </article>
+                <article class="service-card">
+                    <img src="img/training-icon.png" alt="Training Icon">
+                    <h3>Accessibility Training</h3>
+                    <p>We offer workshops and training sessions to help your team understand and implement accessibility best practices.</p>
+                </article>
+                <article class="service-card">
+                    <img src="img/consulting-icon.png" alt="Consulting Icon">
+                    <h3>Consulting Services</h3>
+                    <p>From project planning to implementation, our experts can guide your team through the process of creating accessible products.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <!-- Accessibility: Form with appropriate ARIA label -->
+            <form class="contact-form" aria-label="Contact form">
+                <div class="form-group">
+                    <!-- Accessibility: Explicit label associated with input via for/id -->
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <!-- Accessibility: Required attribute with matching ARIA attribute -->
+                    <input type="email" id="email" name="email" required aria-required="true">
+                    <!-- Accessibility: Live region for dynamic error messages -->
+                    <span id="email-error" class="error-message" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <!-- Accessibility: Textarea with describedby for additional instructions -->
+                    <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-help"></textarea>
+                    <!-- Accessibility: Help text associated with input -->
+                    <span id="message-help" class="help-text">Please provide details about your project or inquiry.</span>
+                </div>
+                <!-- Accessibility: Button with clear purpose -->
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Accessibility: Semantic footer element -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Accessible Design Co.</h3>
+                <!-- Accessibility: Address element for contact information -->
+                <address>
+                    123 Design Street<br>
+                    Accessibility City, AC 12345<br>
+                    <!-- Accessibility: Proper use of telephone and email links -->
+                    <a href="tel:+11234567890">(123) 456-7890</a><br>
+                    <a href="mailto:info@accessibledesignco.com">info@accessibledesignco.com</a>
+                </address>
+            </div>
+            <!-- Accessibility: ARIA label for group of links -->
+            <div class="social-links" aria-label="Social Media Links">
+                <!-- Accessibility: ARIA labels for icon links without text -->
+                <a href="#" aria-label="Facebook"><span class="social-icon">FB</span></a>
+                <a href="#" aria-label="Twitter"><span class="social-icon">TW</span></a>
+                <a href="#" aria-label="LinkedIn"><span class="social-icon">LI</span></a>
+                <a href="#" aria-label="Instagram"><span class="social-icon">IG</span></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Accessible Design Co. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

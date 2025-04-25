@@ -1,0 +1,454 @@
+/* Base styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6; /* Accessibility: Improved line spacing for readability */
+    color: #333; /* Accessibility: Dark text on light background for contrast */
+    background-color: #f9f9f9;
+}
+
+/* Accessibility: Enhanced focus styles for keyboard navigation */
+:focus {
+    outline: 3px solid #4A90E2; /* Accessibility: High visibility focus indicator */
+    outline-offset: 2px; /* Accessibility: Spacing to make focus outline more visible */
+}
+
+/* Accessibility: Skip link for keyboard users to bypass navigation */
+.skip-link {
+    position: absolute;
+    top: -40px; /* Accessibility: Hidden by default but revealed on focus */
+    left: 0;
+    background: #4A90E2;
+    color: white; /* Accessibility: High contrast colors */
+    padding: 8px;
+    z-index: 100; /* Accessibility: Ensures it appears above other content */
+}
+
+.skip-link:focus {
+    top: 0; /* Accessibility: Becomes visible when focused */
+}
+
+/* Header and Navigation */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex; /* Accessibility: Flexbox for responsive layout */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 75px;
+    width: auto; /* Accessibility: Maintains aspect ratio of image */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex; /* Accessibility: Flexbox for responsive navigation */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500; /* Accessibility: Slightly bolder text for readability */
+    transition: color 0.3s; /* Accessibility: Smooth transition for hover states */
+}
+
+/* Accessibility: Clearly visible hover and focus states for interactive elements */
+.nav-links a:hover, 
+.nav-links a:focus {
+    color: #4A90E2; /* Accessibility: Color change to indicate interaction */
+    text-decoration: underline; /* Accessibility: Additional visual indicator */
+}
+
+.menu-toggle {
+    display: none; /* Hidden on larger screens, visible on mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    transition: transform 0.3s;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(8px);
+}
+
+/* Main content sections */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Accessibility: Ensures content doesn't touch edges on small screens */
+}
+
+section {
+    padding: 4rem 0; /* Accessibility: Adequate spacing between sections */
+}
+
+/* Accessibility: Clear heading hierarchy with consistent styling */
+h1, h2, h3 {
+    margin-bottom: 1.5rem;
+    line-height: 1.2; /* Accessibility: Proper line spacing for headings */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* Accessibility: High contrast against dark background */
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #4A90E2;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero-content.png');
+    /* Accessibility: Darkening overlay improves text contrast on background image */
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Accessibility: High contrast text color */
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem; /* Accessibility: Adequate text size for readability */
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4A90E2;
+    color: white; /* Accessibility: High contrast button text */
+    padding: 0.75rem 1.5rem; /* Accessibility: Large touch target for mobile */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Accessibility: Clearly visible hover and focus states */
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #3a7dce; /* Accessibility: Color change to indicate interaction */
+}
+
+/* About Section */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Accessibility: Responsive grid layout */
+    gap: 2rem;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    /* Accessibility: Responsive grid that adapts to screen size */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+/* Accessibility: Focus states for keyboard navigation */
+.service-card:hover,
+.service-card:focus-within { /* Accessibility: focus-within activates when child elements are focused */
+    transform: translateY(-5px); /* Accessibility: Visual feedback for interaction */
+}
+
+.service-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Accessibility: Adequate spacing between form elements */
+}
+
+/* Accessibility: Explicit labeling for form controls */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600; /* Accessibility: Bold labels for readability */
+}
+
+/* Accessibility: Clear visual styling for input fields */
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem; /* Accessibility: Adequate padding for touch targets */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit; /* Accessibility: Consistent font family */
+    font-size: 1rem; /* Accessibility: Adequate text size */
+}
+
+/* Accessibility: Focus states for form controls */
+input:focus,
+textarea:focus {
+    border-color: #4A90E2; /* Accessibility: Visual feedback for interaction */
+}
+
+/* Accessibility: Error message styling */
+.error-message {
+    color: #d9534f; /* Accessibility: High contrast error text */
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Accessibility: Help text styling */
+.help-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.submit-button {
+    background-color: #4A90E2;
+    color: white; /* Accessibility: High contrast button text */
+    border: none;
+    padding: 0.75rem 1.5rem; /* Accessibility: Large touch target */
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Accessibility: Hover and focus states for submit button */
+.submit-button:hover,
+.submit-button:focus {
+    background-color: #3a7dce;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white; /* Accessibility: High contrast text in footer */
+    padding: 3rem 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid; /* Accessibility: Responsive grid layout */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.footer-info h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Accessibility: Proper styling for address element */
+address {
+    font-style: normal;
+    line-height: 1.8; /* Accessibility: Improved line spacing */
+}
+
+address a {
+    color: #4A90E2; /* Accessibility: Links stand out from surrounding text */
+    text-decoration: none;
+}
+
+/* Accessibility: Hover and focus states for footer links */
+address a:hover,
+address a:focus {
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Accessibility: Adequate sizing for social media icons */
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Accessibility: Large touch target */
+    height: 40px; /* Accessibility: Large touch target */
+    background-color: #4A90E2;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.copyright {
+    grid-column: 1 / -1; /* Spans all columns */
+    margin-top: 2rem;
+    text-align: center;
+    color: #bbb;
+}
+
+/* Media Queries - Accessibility: Responsive design for different screen sizes */
+@media (max-width: 1024px) {
+    /* Accessibility: Adjusted font sizes for medium screens */
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Accessibility: Adjusted footer layout for medium screens */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .copyright {
+        grid-column: 1 / 3;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Accessibility: Single column layout for smaller screens */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Accessibility: Adjusted card size for smaller screens */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    /* Accessibility: Mobile navigation adjustments */
+    .menu-toggle {
+        display: block; /* Show hamburger menu on small screens */
+    }
+    
+    /* Accessibility: Mobile menu styling */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+    }
+    
+    /* Accessibility: Active state for mobile menu */
+    .nav-links.active {
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    /* Accessibility: Mobile menu item styling */
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 0.5rem 0; /* Accessibility: Larger touch targets on mobile */
+    }
+    
+    /* Accessibility: Smaller font sizes for mobile */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Accessibility: Adjusted hero section height for mobile */
+    .hero-section {
+        height: 60vh;
+    }
+    
+    /* Accessibility: Single column footer for mobile */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .copyright {
+        grid-column: 1;
+    }
+}
