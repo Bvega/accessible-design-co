@@ -14,7 +14,7 @@
     <header>
         <div class="logo-container">
             <!-- Accessibility: Alt text for company logo -->
-            <img src="img/logo-placeholder-3.png" alt="Accessible Design Co. Logo">
+            <img src="img/logo-placeholder-1.png" alt="Accessible Design Co. Logo">
         </div>
         <!-- Accessibility: Navigation role and label for screen readers -->
         <nav role="navigation" aria-label="Main Navigation">
@@ -74,12 +74,12 @@
                     <p>We create beautiful websites that adhere to WCAG guidelines and provide an excellent experience for all users.</p>
                 </article>
                 <article class="service-card">
-                    <img src="img/audit-icon.png" alt="Accessibility Audit Icon">
+                    <img src="img/audit-icon-3.png" alt="Accessibility Audit Icon">
                     <h3>Accessibility Audits</h3>
                     <p>Our comprehensive audits identify accessibility issues in your existing digital products and provide actionable solutions.</p>
                 </article>
                 <article class="service-card">
-                    <img src="img/training-icon.png" alt="Training Icon">
+                    <img src="img/training-icon-2.png" alt="Training Icon">
                     <h3>Accessibility Training</h3>
                     <p>We offer workshops and training sessions to help your team understand and implement accessibility best practices.</p>
                 </article>
@@ -93,32 +93,40 @@
 
         <section id="contact" class="contact-section">
             <h2>Contact Us</h2>
-            <!-- Accessibility: Form with appropriate ARIA label -->
+            <!-- Accessibility: Form with appropriate ARIA label to identify the form's purpose for screen readers -->
             <form class="contact-form" aria-label="Contact form">
                 <div class="form-group">
-                    <!-- Accessibility: Explicit label associated with input via for/id -->
+                    <!-- Accessibility: Explicit label associated with input via for/id attribute matching, ensuring screen readers announce the field correctly -->
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
+                    <!-- Placeholder helps users understand expected input format, aria-required matches the required attribute for consistent accessibility information -->
+                    <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true">
                 </div>
                 <div class="form-group">
+                    <!-- Label properly connected to input field using for/id pairing -->
                     <label for="email">Email</label>
-                    <!-- Accessibility: Required attribute with matching ARIA attribute -->
-                    <input type="email" id="email" name="email" required aria-required="true">
-                    <!-- Accessibility: Live region for dynamic error messages -->
+                    <!-- Accessibility: Required attribute with matching ARIA attribute for consistent messaging across technologies -->
+                    <!-- Email type provides built-in validation and appropriate mobile keyboard -->
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
+                    <!-- Accessibility: Live region for dynamic error messages that will be announced by screen readers when content changes -->
                     <span id="email-error" class="error-message" aria-live="polite"></span>
                 </div>
                 <div class="form-group">
+                    <!-- Semantic connection between label and input field -->
                     <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required aria-required="true">
+                    <!-- Placeholder provides hint about expected content without requiring additional instructions -->
+                    <input type="text" id="subject" name="subject" placeholder="What is your message about?" required aria-required="true">
                 </div>
                 <div class="form-group">
+                    <!-- Associated label ensures screen reader users understand the purpose of the textarea -->
                     <label for="message">Message</label>
-                    <!-- Accessibility: Textarea with describedby for additional instructions -->
-                    <textarea id="message" name="message" rows="5" required aria-required="true" aria-describedby="message-help"></textarea>
-                    <!-- Accessibility: Help text associated with input -->
+                    <!-- Accessibility: Textarea with describedby for additional instructions that connects to help text below -->
+                    <!-- The rows attribute provides an initial size hint while allowing for expansion -->
+                    <textarea id="message" name="message" rows="5" placeholder="Please write your message here..." required aria-required="true" aria-describedby="message-help"></textarea>
+                    <!-- Accessibility: Help text associated with input via aria-describedby, providing additional context for all users -->
                     <span id="message-help" class="help-text">Please provide details about your project or inquiry.</span>
                 </div>
-                <!-- Accessibility: Button with clear purpose -->
+                <!-- Accessibility: Button with clear purpose, using action verb to indicate what will happen on click -->
+                <!-- Type="submit" ensures form submission works properly with keyboard and assistive technology -->
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
         </section>
